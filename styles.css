@@ -1,0 +1,235 @@
+body {
+  font-family: "Raleway", sans-serif;
+  color: #fff;
+}
+
+.container {
+  width: 1000px;
+  border: 1px solid #000;
+  margin: 50px auto;
+  border-radius: 10px;
+  background-image: linear-gradient(
+      to top,
+      rgba(0, 0, 0, 0.393),
+      rgba(22, 60, 142, 0.33)
+    ),
+    url(images/Kyiv.jpg);
+
+  background-size: cover;
+}
+
+.search {
+  text-align: left;
+  position: relative;
+  top: 10px;
+  left: 20px;
+  width: 400px;
+}
+
+.search-input {
+  width: 350px;
+  height: 35px;
+  border: 1px solid #000;
+  border-radius: 4px;
+  padding-left: 10px;
+  opacity: 60%;
+}
+
+.search-icon {
+  width: 30px;
+  height: 30px;
+  position: relative;
+  top: 11px;
+  left: -40px;
+  cursor: pointer;
+}
+
+.search-icon:hover {
+  transform: scale(1.1);
+  filter: hue-rotate(180deg);
+}
+
+.current-location {
+  position: relative;
+  text-align: right;
+  top: -30px;
+  left: 750px;
+  width: 200px;
+}
+
+.current-location-button {
+  width: 150px;
+  height: 35px;
+  border: 1px solid rgb(99, 99, 99);
+  background-color: rgb(156, 115, 245);
+  color: #fff;
+  border-radius: 4px;
+  padding-left: 10px;
+  opacity: 70%;
+  cursor: pointer;
+}
+
+.current-location-button:hover {
+  transform: scale(1.1);
+}
+
+.header {
+  text-align: center;
+}
+
+.city-name {
+  margin-top: 0;
+  margin-bottom: 10px;
+  font-size: 35px;
+  font-weight: 500;
+}
+
+.current-date {
+  margin: 0;
+  font-size: 22px;
+  font-weight: 400;
+}
+
+.row {
+  display: flex;
+}
+
+.column1,
+.column2,
+.column3 {
+  display: inline-flex;
+  height: 300px;
+  grid-row: auto;
+}
+
+.column1,
+.column3 {
+  width: 30%;
+}
+
+.column2 {
+  width: 40%;
+}
+
+.temperature {
+  margin-top: 30px;
+  margin-left: 40px;
+  z-index: 3;
+}
+
+.current-temperature {
+  font-size: 200px;
+  font-weight: 500;
+  padding: 0;
+  margin: 0;
+  line-height: 1;
+  font-family: "Anybody", cursive;
+}
+
+.feels-like {
+  position: relative;
+  top: -30px;
+  margin: 0;
+  text-align: right;
+  margin-right: 40px;
+  font-size: 20px;
+  font-weight: 300;
+}
+
+.unity {
+  cursor: pointer;
+}
+
+.unity:hover {
+  color: rgba(255, 51, 51, 0.696);
+  font-weight: 700;
+}
+
+.image {
+  display: inline-block;
+  margin: 0 auto;
+  width: 100%;
+}
+
+.weather-image {
+  display: block;
+  margin: 0 auto;
+  width: 90%;
+  margin-top: -20px;
+  z-index: 2;
+}
+
+.details {
+  font-size: 20px;
+  font-weight: 300;
+  display: block;
+  margin: 30px auto;
+  z-index: 1;
+  margin-left: 20px;
+}
+
+.pictogram {
+  width: 20px;
+  margin-right: 10px;
+  filter: invert(100%);
+}
+
+.row2 {
+  display: flex;
+}
+
+.column-next-day {
+  width: 20%;
+  border: 1px solid #000;
+  border-radius: 5px;
+  align-items: center;
+  background-color: rgba(255, 255, 255, 0.696);
+}
+
+.column-next-day:hover {
+  transform: scale(1.1);
+}
+
+.first-column:hover {
+  background-color: rgba(249, 208, 208, 0.696);
+}
+
+.second-column:hover {
+  background-color: rgba(244, 223, 189, 0.696);
+}
+
+.third-column:hover {
+  background-color: rgba(243, 245, 186, 0.696);
+}
+
+.forth-column:hover {
+  background-color: rgba(193, 245, 198, 0.696);
+}
+
+.fifth-column:hover {
+  background-color: rgba(193, 246, 248, 0.696);
+}
+
+.weather-image-next-day {
+  width: 70px;
+  display: block;
+  margin: 0 auto;
+}
+
+.temperature-icon {
+  width: 20px;
+}
+
+.weekday {
+  text-align: center;
+  margin: 15px 0px 5px 0px;
+  font-weight: 400;
+  font-size: 22px;
+}
+
+.next-day-temperature {
+  text-align: center;
+  font-size: 25px;
+  margin: 5px 0px 15px 0px;
+  font-weight: 500;
+}

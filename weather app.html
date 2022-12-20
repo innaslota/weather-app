@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="styles.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Raleway:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Anybody:wght@200;300;400;500;600;700;800;900&display=swap"
+      rel="stylesheet"
+    />
+    <script src="https://cdn.jsdelivr.net/npm/axios@1.1.2/dist/axios.min.js"></script>
+  </head>
+  <body>
+    <div class="container">
+      <div class="search">
+        <form id="search-form">
+          <input
+            type="text"
+            name="search"
+            id="search"
+            placeholder="Search"
+            class="search-input"
+            autofocus="on"
+          />
+          <input type="image" src="images/search.png" class="search-icon" />
+        </form>
+      </div>
+
+      <div class="current-location">
+        <button class="current-location-button" id="current-location-button">
+          Current location
+        </button>
+      </div>
+
+      <div class="header">
+        <h1 class="city-name" id="city-name">Kyiv</h1>
+        <h2 class="current-date" id="current-date">
+          Saturday, November 15, 2022
+        </h2>
+      </div>
+
+      <div class="row">
+        <div class="column1">
+          <div class="temperature">
+            <h3 class="current-temperature">
+              <span id="next-day-temperature">+25</span>°
+            </h3>
+            <h4 class="feels-like">
+              <span class="unity" id="celsius">C</span>/<span
+                class="unity"
+                id="fahrenheit"
+                >F</span
+              >
+              <strong><span id="feels-like-temp">+20</span>°</strong> feels
+            </h4>
+          </div>
+        </div>
+        <div class="column2">
+          <div class="image">
+            <img
+              src="images/front-image.png"
+              alt="Weather image"
+              class="weather-image"
+            />
+          </div>
+        </div>
+        <div class="column3">
+          <div class="details">
+            <p>
+              <img
+                src="images/gauge.png"
+                alt="Atmosphere presure"
+                class="pictogram"
+              />
+              <span id="atmosphere-presure">1010</span> hPa
+            </p>
+            <p>
+              <img src="images/humidity.png" alt="Humidity" class="pictogram" />
+              <span id="humidity">46</span>% humidity
+            </p>
+            <p>
+              <img src="images/wind.png" alt="Wind" class="pictogram" />
+              <span id="wind">2</span> m/s NW
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <div class="row2">
+        <div class="column-next-day first-column">
+          <div class="next-day">
+            <h2 class="weekday">Monday</h2>
+            <img
+              src="images/cloudy-sunny.png"
+              alt="Weather image"
+              class="weather-image-next-day"
+            />
+            <p class="next-day-temperature">
+              <img
+                src="images/thermometer.png"
+                alt="Temperature"
+                class="temperature-icon"
+              />
+              +20°C
+            </p>
+          </div>
+        </div>
+        <div class="column-next-day second-column">
+          <div class="next-day">
+            <h2 class="weekday">Tuesday</h2>
+            <img
+              src="images/sun (2).png"
+              alt="Weather image"
+              class="weather-image-next-day"
+            />
+            <p class="next-day-temperature">
+              <img
+                src="images/thermometer.png"
+                alt="Temperature"
+                class="temperature-icon"
+              />
+              +23°C
+            </p>
+          </div>
+        </div>
+        <div class="column-next-day third-column">
+          <div class="next-day">
+            <h2 class="weekday">Wednesday</h2>
+            <img
+              src="images/cloud.png"
+              alt="Weather image"
+              class="weather-image-next-day"
+            />
+            <p class="next-day-temperature">
+              <img
+                src="images/thermometer.png"
+                alt="Temperature"
+                class="temperature-icon"
+              />
+              +21°C
+            </p>
+          </div>
+        </div>
+        <div class="column-next-day forth-column">
+          <div class="next-day">
+            <h2 class="weekday">Thursday</h2>
+            <img
+              src="images/cloudy-rainy.png"
+              alt="Weather image"
+              class="weather-image-next-day"
+            />
+            <p class="next-day-temperature">
+              <img
+                src="images/thermometer.png"
+                alt="Temperature"
+                class="temperature-icon"
+              />
+              +19°C
+            </p>
+          </div>
+        </div>
+        <div class="column-next-day fifth-column">
+          <div class="next-day">
+            <h2 class="weekday">Friday</h2>
+            <img
+              src="images/rainy.png"
+              alt="Weather image"
+              class="weather-image-next-day"
+            />
+            <p class="next-day-temperature">
+              <img
+                src="images/thermometer.png"
+                alt="Temperature"
+                class="temperature-icon"
+              />
+              +17°C
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+    <script src="app.js"></script>
+  </body>
+</html>
