@@ -13,7 +13,23 @@ function formatDate(timestamp) {
     "Saturday",
   ];
   let day = newDate.getDay();
-  return `${days[day]}, ${hours}:${minutes}`;
+  let months = [
+    "Jan",
+    "Feb",
+    "Mar",
+    "Apr",
+    "May",
+    "Jun",
+    "Jul",
+    "Aug",
+    "Sep",
+    "Oct",
+    "Nov",
+    "Dec",
+  ];
+  let month = newDate.getMonth();
+  let date = newDate.getDate();
+  return `${days[day]} (${months[month]}, ${date}), ${hours}:${minutes}`;
 }
 
 //get temperature and display it
