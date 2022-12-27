@@ -71,11 +71,24 @@ function displayTemp(response) {
   iconElement.setAttribute("alt", `${response.data.weather[0].description}`);
 }
 
-let apiKey = "bdad5baf17a5f89219e6f1fedb3153de";
-let city = "Madrid";
-let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city}&units=metric`;
-axios.get(`${apiUrl}&appid=${apiKey}`).then(displayTemp);
+//search engine
+function search(city) {
+  let apiKey = "bdad5baf17a5f89219e6f1fedb3153de";
+  let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city}&units=metric`;
+  axios.get(`${apiUrl}&appid=${apiKey}`).then(displayTemp);
+}
 
+function displayCity(event) {
+  event.preventDefault();
+  let input = document.querySelector("#search");
+  search(input.value);
+  input.value = "";
+}
+
+let searchForm = document.querySelector("#search-form");
+searchForm.addEventListener("submit", displayCity);
+
+search("Kyiv");
 /*
 //show current date and time
 
