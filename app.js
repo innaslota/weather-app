@@ -65,7 +65,8 @@ function displayTemp(response) {
 }
 
 let apiKey = "bdad5baf17a5f89219e6f1fedb3153de";
-let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=Kyiv&units=metric`;
+let city = "Kyiv";
+let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city}&units=metric`;
 axios.get(`${apiUrl}&appid=${apiKey}`).then(displayTemp);
 
 /*
