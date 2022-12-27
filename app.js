@@ -1,3 +1,38 @@
+//get temperature and display it
+
+function displayTemp(response) {
+  let currentTempElement = document.querySelector("#current-temperature");
+  if (response.data.main.temp > "0") {
+    currentTempElement.innerHTML = `+${Math.round(response.data.main.temp)}`;
+  } else {
+    currentTempElement.innerHTML = Math.round(response.data.main.temp);
+  }
+
+  let feelsLikeTempElement = document.querySelector("#feels-like-temp");
+  if (response.data.main.feels_like > "0") {
+    feelsLikeTempElement.innerHTML = `+${Math.round(
+      response.data.main.feels_like
+    )}`;
+  } else {
+    feelsLikeTempElement.innerHTML = Math.round(response.data.main.feels_like);
+  }
+
+  document.querySelector("#city-name").innerHTML = response.data.name;
+  document.querySelector("#description").innerHTML =
+    response.data.weather[0].description;
+  document.querySelector("#humidity").innerHTML = response.data.main.humidity;
+  document.querySelector("#atmosphere-presure").innerHTML =
+    response.data.main.pressure;
+  document.querySelector("#wind").innerHTML = Math.round(
+    response.data.wind.speed
+  );
+}
+
+let apiKey = "bdad5baf17a5f89219e6f1fedb3153de";
+let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=Kyiv&units=metric`;
+axios.get(`${apiUrl}&appid=${apiKey}`).then(displayTemp);
+
+/*
 //show current date and time
 
 let newDate = new Date();
