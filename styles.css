@@ -241,3 +241,7 @@ body {
   margin: 5px 0px 15px 0px;
   font-weight: 500;
 }
+
+.reference {
+  color: rgb(239, 212, 33);
+}
