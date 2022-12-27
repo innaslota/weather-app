@@ -1,5 +1,22 @@
-//get temperature and display it
+//show current date
+function formatDate(timestamp) {
+  let newDate = new Date(timestamp);
+  let hours = newDate.getHours();
+  let minutes = ("0" + newDate.getMinutes()).slice(-2);
+  let days = [
+    "Sunday",
+    "Monday",
+    "Tuesday",
+    "Wednesday",
+    "Thursday",
+    "Friday",
+    "Saturday",
+  ];
+  let day = newDate.getDay();
+  return `${days[day]}, ${hours}:${minutes}`;
+}
 
+//get temperature and display it
 function displayTemp(response) {
   let currentTempElement = document.querySelector("#current-temperature");
   if (response.data.main.temp > "0") {
@@ -25,6 +42,9 @@ function displayTemp(response) {
     response.data.main.pressure;
   document.querySelector("#wind").innerHTML = Math.round(
     response.data.wind.speed
+  );
+  document.querySelector("#current-date").innerHTML = formatDate(
+    response.data.dt * 1000
   );
 }
 

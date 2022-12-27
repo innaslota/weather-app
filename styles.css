@@ -119,6 +119,9 @@ body {
 
 .description {
   font-size: 10px;
+}
+
+.description::first-letter {
   text-transform: capitalize;
 }
 
