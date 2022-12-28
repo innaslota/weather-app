@@ -107,6 +107,10 @@ body {
   width: 30%;
 }
 
+.column1 {
+  margin-left: 50px;
+}
+
 .column2 {
   width: 40%;
 }
@@ -119,6 +123,11 @@ body {
 
 .description {
   font-size: 10px;
+  margin-bottom: 0px;
+  margin-top: 0px;
+  margin-right: 35px;
+  text-align: right;
+  font-size: 14px;
 }
 
 .description::first-letter {
@@ -126,7 +135,7 @@ body {
 }
 
 .current-temperature {
-  font-size: 200px;
+  font-size: 170px;
   font-weight: 500;
   padding: 0;
   margin: 0;
@@ -168,7 +177,7 @@ body {
 .weather-image {
   display: block;
   margin: 0 auto;
-  width: 90%;
+  width: 70%;
   margin-top: -20px;
   z-index: 2;
 }
