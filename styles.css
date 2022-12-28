@@ -153,6 +153,12 @@ body {
   font-weight: 700;
 }
 
+.active:hover {
+  cursor: default;
+  color: #fff;
+  font-weight: 300;
+}
+
 .image {
   display: inline-block;
   margin: 0 auto;

@@ -32,7 +32,7 @@ function formatDate(timestamp) {
   return `${days[day]} (${months[month]}, ${date}), ${hours}:${minutes}`;
 }
 
-//get temperature and display it
+//get info from API and display it
 function displayTemp(response) {
   let currentTempElement = document.querySelector("#current-temperature");
   if (response.data.main.temp > "0") {
@@ -63,6 +63,9 @@ function displayTemp(response) {
     response.data.dt * 1000
   );
 
+  celsiusTemperature = response.data.main.temp;
+  celsiusTemperatureFeelsLike = response.data.main.feels_like;
+
   let iconElement = document.querySelector("#icon");
   iconElement.setAttribute(
     "src",
@@ -87,6 +90,64 @@ function displayCity(event) {
 
 let searchForm = document.querySelector("#search-form");
 searchForm.addEventListener("submit", displayCity);
+
+//convert units
+let celsiusTemperature = null;
+let celsiusTemperatureFeelsLike = null;
+
+//convert Celsius to Fahrenheit
+function displayFahrenheit(event) {
+  event.preventDefault();
+  //make celsius link inactive
+  celsius.classList.remove("active");
+  fahrenheit.classList.add("active");
+  //convert current temperature
+  let temperature = document.querySelector("#current-temperature");
+  fahrenheitTemperature = `${Math.round((celsiusTemperature * 9) / 5 + 32)}`;
+  if (fahrenheitTemperature > "0") {
+    temperature.innerHTML = `+${fahrenheitTemperature}`;
+  } else {
+    temperature.innerHTML = `${fahrenheitTemperature}`;
+  }
+  //convert feelsLike temperature
+  let feelsLikeTemp = document.querySelector("#feels-like-temp");
+  fahrenheitTemperature = `${Math.round(
+    (celsiusTemperatureFeelsLike * 9) / 5 + 32
+  )}`;
+  if (fahrenheitTemperature > "0") {
+    feelsLikeTemp.innerHTML = `+${fahrenheitTemperature}`;
+  } else {
+    feelsLikeTemp.innerHTML = `${fahrenheitTemperature}`;
+  }
+}
+
+let fahrenheit = document.querySelector("#fahrenheit");
+fahrenheit.addEventListener("click", displayFahrenheit);
+
+//convert Fahrenheit to Celsius
+function displayCelsius(event) {
+  event.preventDefault();
+  //make fahrenheit link inactive
+  fahrenheit.classList.remove("active");
+  celsius.classList.add("active");
+  //convert current temperature
+  let temperature = document.querySelector("#current-temperature");
+  if (celsiusTemperature > "0") {
+    temperature.innerHTML = `+${Math.round(celsiusTemperature)}`;
+  } else {
+    temperature.innerHTML = `${Math.round(celsiusTemperature)}`;
+  }
+  //convert feelsLike temperature
+  let feelsLikeTemp = document.querySelector("#feels-like-temp");
+  if (celsiusTemperatureFeelsLike > "0") {
+    feelsLikeTemp.innerHTML = `+${Math.round(celsiusTemperatureFeelsLike)}`;
+  } else {
+    feelsLikeTemp.innerHTML = `${Math.round(celsiusTemperatureFeelsLike)}`;
+  }
+}
+
+let celsius = document.querySelector("#celsius");
+celsius.addEventListener("click", displayCelsius);
 
 search("Kyiv");
 /*
@@ -143,29 +204,4 @@ function showCurrentTemperature() {
 let button = document.querySelector("#current-location-button");
 button.addEventListener("click", showCurrentTemperature);
 
-//convert units
-
-/*function displayCelsius() {
-  let temperature = document.querySelector("#next-day-temperature");
-  let temp = temperature.innerHTML;
-  temperature.innerHTML = `${((temp - 32) * 5) / 9}`;
-  let feelsLikeTemp = document.querySelector("#feels-like-temp");
-  let tempFeelsLike = feelsLikeTemp.innerHTML;
-  feelsLikeTemp.innerHTML = `${((tempFeelsLike - 32) * 5) / 9}`;
-}
-
-let celsius = document.querySelector("#celsius");
-celsius.addEventListener("click", displayCelsius);
-
-function displayFahrenheit() {
-  let temperature = document.querySelector("#next-day-temperature");
-  let temp = temperature.innerHTML;
-  temperature.innerHTML = `${(temp * 9) / 5 + 32}`;
-  let feelsLikeTemp = document.querySelector("#feels-like-temp");
-  let tempFeelsLike = feelsLikeTemp.innerHTML;
-  feelsLikeTemp.innerHTML = `${(tempFeelsLike * 9) / 5 + 32}`;
-}
-
-let fahrenheit = document.querySelector("#fahrenheit");
-fahrenheit.addEventListener("click", displayFahrenheit);
 */
