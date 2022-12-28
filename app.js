@@ -149,59 +149,19 @@ function displayCelsius(event) {
 let celsius = document.querySelector("#celsius");
 celsius.addEventListener("click", displayCelsius);
 
-search("Kyiv");
-/*
+//get current location and weather info for it
+function showPositionData(position) {
+  let apiKey = "bdad5baf17a5f89219e6f1fedb3153de";
+  let apiUrl = `https://api.openweathermap.org/data/2.5/weather?lat=${position.coords.latitude}&lon=${position.coords.longitude}&units=metric`;
+  axios.get(`${apiUrl}&appid=${apiKey}`).then(displayTemp);
+}
 
-
-//get location and show temperature
-
-function showCurrentTemperature() {
-  function showPosition(position) {
-    let lat = position.coords.latitude;
-    let long = position.coords.longitude;
-
-    function displayTemp(response) {
-      let currentTemp = document.querySelector("#next-day-temperature");
-      if (response.data.main.temp > "0") {
-        currentTemp.innerHTML = `+${Math.round(response.data.main.temp)}`;
-      } else {
-        currentTemp.innerHTML = `${Math.round(response.data.main.temp)}`;
-      }
-
-      let feelsLikeTemp = document.querySelector("#feels-like-temp");
-      if (response.data.main.feels_like > "0") {
-        feelsLikeTemp.innerHTML = `+${Math.round(
-          response.data.main.feels_like
-        )}`;
-      } else {
-        feelsLikeTemp.innerHTML = `${Math.round(
-          response.data.main.feels_like
-        )}`;
-      }
-
-      let humidity = document.querySelector("#humidity");
-      humidity.innerHTML = `${response.data.main.humidity}`;
-
-      let atmospherePresure = document.querySelector("#atmosphere-presure");
-      atmospherePresure.innerHTML = `${response.data.main.pressure}`;
-
-      let wind = document.querySelector("#wind");
-      wind.innerHTML = `${response.data.wind.speed}`;
-
-      let cityName = document.querySelector("#city-name");
-      cityName.innerHTML = ``;
-    }
-
-    let apiKey = "bdad5baf17a5f89219e6f1fedb3153de";
-    let apiUrl = `https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${long}&units=metric`;
-
-    axios.get(`${apiUrl}&appid=${apiKey}`).then(displayTemp);
-  }
-
-  navigator.geolocation.getCurrentPosition(showPosition);
+function showCurrentWeatherInfo(event) {
+  event.preventDefault();
+  navigator.geolocation.getCurrentPosition(showPositionData);
 }
 
 let button = document.querySelector("#current-location-button");
-button.addEventListener("click", showCurrentTemperature);
+button.addEventListener("click", showCurrentWeatherInfo);
 
-*/
+search("Kyiv");
