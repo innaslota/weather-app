@@ -33,7 +33,9 @@ function formatDate(timestamp) {
 }
 
 //add the dymanic HTML to weather forcast section
-function displayForecast() {
+function displayForecast(response) {
+  console.log(response.data.list);
+
   let forecastElement = document.querySelector("#weather-forecast");
 
   let forecastHTML = "";
@@ -71,6 +73,13 @@ function displayForecast() {
   });
   forecastHTML += `</div>`;
   forecastElement.innerHTML = forecastHTML;
+}
+
+//get forecast from the API
+function getForecast(coords) {
+  let apiKey = "bdad5baf17a5f89219e6f1fedb3153de";
+  let apiUrl = `https://api.openweathermap.org/data/2.5/forecast?lat=${coords.lat}&lon=${coords.lon}&appid=${apiKey}&units=metric`;
+  axios.get(apiUrl).then(displayForecast);
 }
 
 //get info from API and display it
@@ -113,6 +122,8 @@ function displayTemp(response) {
     `http://openweathermap.org/img/wn/${response.data.weather[0].icon}@2x.png`
   );
   iconElement.setAttribute("alt", `${response.data.weather[0].description}`);
+
+  getForecast(response.data.coord);
 }
 
 //search engine
@@ -206,4 +217,3 @@ let button = document.querySelector("#current-location-button");
 button.addEventListener("click", showCurrentWeatherInfo);
 
 search("Kyiv");
-displayForecast();
